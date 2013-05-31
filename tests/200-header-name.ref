@@ -1,0 +1,25 @@
+invalid #
+identifier include
+invalid <foo>
+invalid #
+identifier include
+invalid "foo"
+invalid #
+identifier notinclude
+simple < OP_LT
+identifier foo
+simple > OP_GT
+invalid #
+identifier notinclude
+literal "foo" array of 4 char 666F6F00
+identifier something
+invalid #
+identifier include
+simple < OP_LT
+identifier foo
+simple > OP_GT
+identifier something
+invalid #
+identifier include
+literal "foo" array of 4 char 666F6F00
+eof

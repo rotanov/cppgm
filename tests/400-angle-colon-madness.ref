@@ -1,0 +1,8 @@
+simple < OP_LT
+simple :: OP_COLON2
+simple <: OP_LSQUARE
+simple :> OP_RSQUARE
+simple :: OP_COLON2
+simple <: OP_LSQUARE
+simple :: OP_COLON2
+eof

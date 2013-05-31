@@ -1,0 +1,2 @@
+ERROR: ud_suffix does not start with _: "abc"u
+ERROR: mismatched encoding prefix in string literal sequence

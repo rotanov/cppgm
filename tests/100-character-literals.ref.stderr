@@ -1,0 +1,5 @@
+ERROR: multi code point character literals not supported: 'foo'
+ERROR: multi code point character literals not supported: 'bar'
+ERROR: multi code point character literals not supported: u'bar'
+ERROR: multi code point character literals not supported: U'bar'
+ERROR: multi code point character literals not supported: L'baz'

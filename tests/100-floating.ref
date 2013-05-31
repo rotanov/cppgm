@@ -1,0 +1,11 @@
+literal 0.0 double 0000000000000000
+invalid 0....1
+literal 0.0e+3 double 0000000000000000
+invalid 0.24512..E-
+invalid 0...e+
+invalid 0efsa
+simple - OP_MINUS
+literal 21412e421 double FFFFFFFFFFFFEF7F
+literal 241E421 double FFFFFFFFFFFFEF7F
+invalid 12e...2
+eof

@@ -1,0 +1,3 @@
+literal '\'' char 27
+literal "\"" array of 2 char 2200
+eof

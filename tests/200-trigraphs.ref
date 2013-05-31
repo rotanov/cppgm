@@ -1,0 +1,21 @@
+invalid #
+invalid \
+simple ^ OP_XOR
+simple [ OP_LSQUARE
+simple ] OP_RSQUARE
+simple | OP_BOR
+simple { OP_LBRACE
+simple } OP_RBRACE
+simple ~ OP_COMPL
+simple ? OP_QMARK
+simple ? OP_QMARK
+simple ? OP_QMARK
+simple ? OP_QMARK
+invalid #
+simple ? OP_QMARK
+simple ? OP_QMARK
+invalid \
+simple ? OP_QMARK
+simple ^ OP_XOR
+literal "#" R"(??=)" R"?(??=)?" array of 8 char 233F3F3D3F3F3D00
+eof

@@ -1,0 +1,5 @@
+ERROR: invalid floating literal (#1): 0....1
+ERROR: invalid floating literal (#1): 0.24512..E-
+ERROR: invalid floating literal (#1): 0...e+
+ERROR: invalid floating literal (#2): 0efsa
+ERROR: invalid floating literal (#2): 12e...2

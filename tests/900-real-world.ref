@@ -1,0 +1,587 @@
+invalid #
+identifier include
+invalid <stdio.h>
+invalid #
+identifier include
+invalid <stdlib.h>
+invalid #
+identifier define
+identifier TRUE
+literal 1 int 01000000
+invalid #
+identifier define
+identifier FALSE
+literal 0 int 00000000
+simple int KW_INT
+identifier get_day_code
+simple ( OP_LPAREN
+simple int KW_INT
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple int KW_INT
+identifier get_leap_year
+simple ( OP_LPAREN
+simple int KW_INT
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple void KW_VOID
+identifier print_calendar
+simple ( OP_LPAREN
+identifier FILE
+simple * OP_STAR
+identifier fout
+simple , OP_COMMA
+simple int KW_INT
+identifier year
+simple , OP_COMMA
+simple int KW_INT
+identifier day_code
+simple , OP_COMMA
+simple int KW_INT
+identifier leap_year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple int KW_INT
+identifier get_year
+simple ( OP_LPAREN
+simple void KW_VOID
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier main
+simple ( OP_LPAREN
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple int KW_INT
+identifier year
+simple , OP_COMMA
+identifier day_code
+simple , OP_COMMA
+identifier leap_year
+simple ; OP_SEMICOLON
+identifier FILE
+simple * OP_STAR
+identifier fout
+simple ; OP_SEMICOLON
+identifier fout
+simple = OP_ASS
+identifier fopen
+simple ( OP_LPAREN
+literal "calendar.txt" array of 13 char 63616C656E6461722E74787400
+simple , OP_COMMA
+literal "w" array of 2 char 7700
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier year
+simple = OP_ASS
+identifier get_year
+simple ( OP_LPAREN
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier day_code
+simple = OP_ASS
+identifier get_day_code
+simple ( OP_LPAREN
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier leap_year
+simple = OP_ASS
+identifier get_leap_year
+simple ( OP_LPAREN
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier print_calendar
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+identifier year
+simple , OP_COMMA
+identifier day_code
+simple , OP_COMMA
+identifier leap_year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier printf
+simple ( OP_LPAREN
+literal "Open up \'calendar.txt\' to see your calendar...\n" array of 48 char 4F70656E207570202763616C656E6461722E7478742720746F2073656520796F75722063616C656E6461722E2E2E0A00
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier system
+simple ( OP_LPAREN
+literal "pause" array of 6 char 706175736500
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+simple int KW_INT
+identifier get_year
+simple ( OP_LPAREN
+simple void KW_VOID
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple int KW_INT
+identifier year
+simple ; OP_SEMICOLON
+identifier printf
+simple ( OP_LPAREN
+literal "Enter a year: " array of 15 char 456E746572206120796561723A2000
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier scanf
+simple ( OP_LPAREN
+literal "%d" array of 3 char 256400
+simple , OP_COMMA
+simple & OP_AMP
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple return KW_RETURN
+identifier year
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+simple int KW_INT
+identifier get_day_code
+simple ( OP_LPAREN
+simple int KW_INT
+identifier year
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple int KW_INT
+identifier day_code
+simple ; OP_SEMICOLON
+simple int KW_INT
+identifier x1
+simple , OP_COMMA
+identifier x2
+simple , OP_COMMA
+identifier x3
+simple ; OP_SEMICOLON
+identifier x1
+simple = OP_ASS
+simple ( OP_LPAREN
+identifier year
+simple - OP_MINUS
+literal 1. double 000000000000F03F
+simple ) OP_RPAREN
+simple / OP_DIV
+literal 4.0 double 0000000000001040
+simple ; OP_SEMICOLON
+identifier x2
+simple = OP_ASS
+simple ( OP_LPAREN
+identifier year
+simple - OP_MINUS
+literal 1. double 000000000000F03F
+simple ) OP_RPAREN
+simple / OP_DIV
+literal 100. double 0000000000005940
+simple ; OP_SEMICOLON
+identifier x3
+simple = OP_ASS
+simple ( OP_LPAREN
+identifier year
+simple - OP_MINUS
+literal 1. double 000000000000F03F
+simple ) OP_RPAREN
+simple / OP_DIV
+literal 400. double 0000000000007940
+simple ; OP_SEMICOLON
+identifier day_code
+simple = OP_ASS
+simple ( OP_LPAREN
+identifier year
+simple + OP_PLUS
+identifier x1
+simple - OP_MINUS
+identifier x2
+simple + OP_PLUS
+identifier x3
+simple ) OP_RPAREN
+simple % OP_MOD
+literal 7 int 07000000
+simple ; OP_SEMICOLON
+simple return KW_RETURN
+identifier day_code
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+simple int KW_INT
+identifier get_leap_year
+simple ( OP_LPAREN
+simple int KW_INT
+identifier year
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple if KW_IF
+simple ( OP_LPAREN
+identifier year
+simple % OP_MOD
+literal 4 int 04000000
+simple == OP_EQ
+literal 0 int 00000000
+simple && OP_LAND
+identifier year
+simple % OP_MOD
+literal 100 int 64000000
+simple != OP_NE
+literal 0 int 00000000
+simple || OP_LOR
+identifier year
+simple % OP_MOD
+literal 400 int 90010000
+simple == OP_EQ
+literal 0 int 00000000
+simple ) OP_RPAREN
+simple return KW_RETURN
+identifier TRUE
+simple ; OP_SEMICOLON
+simple else KW_ELSE
+simple return KW_RETURN
+identifier FALSE
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+simple void KW_VOID
+identifier print_calendar
+simple ( OP_LPAREN
+identifier FILE
+simple * OP_STAR
+identifier fout
+simple , OP_COMMA
+simple int KW_INT
+identifier year
+simple , OP_COMMA
+simple int KW_INT
+identifier day_code
+simple , OP_COMMA
+simple int KW_INT
+identifier leap_year
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple int KW_INT
+identifier days_in_month
+simple , OP_COMMA
+identifier day
+simple , OP_COMMA
+identifier month
+simple ; OP_SEMICOLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "                   %d" array of 22 char 20202020202020202020202020202020202020256400
+simple , OP_COMMA
+identifier year
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple for KW_FOR
+simple ( OP_LPAREN
+identifier month
+simple = OP_ASS
+literal 1 int 01000000
+simple ; OP_SEMICOLON
+identifier month
+simple <= OP_LE
+literal 12 int 0C000000
+simple ; OP_SEMICOLON
+identifier month
+simple ++ OP_INC
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple switch KW_SWITCH
+simple ( OP_LPAREN
+identifier month
+simple ) OP_RPAREN
+simple { OP_LBRACE
+simple case KW_CASE
+literal 1 int 01000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nJanuary" array of 10 char 0A0A4A616E7561727900
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 2 int 02000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nFebruary" array of 11 char 0A0A466562727561727900
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+identifier leap_year
+simple ? OP_QMARK
+literal 29 int 1D000000
+simple : OP_COLON
+literal 28 int 1C000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 3 int 03000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nMarch" array of 8 char 0A0A4D6172636800
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 4 int 04000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nApril" array of 8 char 0A0A417072696C00
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 30 int 1E000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 5 int 05000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nMay" array of 6 char 0A0A4D617900
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 6 int 06000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nJune" array of 7 char 0A0A4A756E6500
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 30 int 1E000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 7 int 07000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nJuly" array of 7 char 0A0A4A756C7900
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 8 int 08000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nAugust" array of 9 char 0A0A41756775737400
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 9 int 09000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nSeptember" array of 12 char 0A0A53657074656D62657200
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 30 int 1E000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 10 int 0A000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nOctober" array of 10 char 0A0A4F63746F62657200
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 11 int 0B000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nNovember" array of 11 char 0A0A4E6F76656D62657200
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 30 int 1E000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple case KW_CASE
+literal 12 int 0C000000
+simple : OP_COLON
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nDecember" array of 11 char 0A0A446563656D62657200
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+identifier days_in_month
+simple = OP_ASS
+literal 31 int 1F000000
+simple ; OP_SEMICOLON
+simple break KW_BREAK
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n\nSun  Mon  Tue  Wed  Thu  Fri  Sat\n" array of 37 char 0A0A53756E20204D6F6E202054756520205765642020546875202046726920205361740A00
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple for KW_FOR
+simple ( OP_LPAREN
+identifier day
+simple = OP_ASS
+literal 1 int 01000000
+simple ; OP_SEMICOLON
+identifier day
+simple <= OP_LE
+literal 1 int 01000000
+simple + OP_PLUS
+identifier day_code
+simple * OP_STAR
+literal 5 int 05000000
+simple ; OP_SEMICOLON
+identifier day
+simple ++ OP_INC
+simple ) OP_RPAREN
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal " " array of 2 char 2000
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple for KW_FOR
+simple ( OP_LPAREN
+identifier day
+simple = OP_ASS
+literal 1 int 01000000
+simple ; OP_SEMICOLON
+identifier day
+simple <= OP_LE
+identifier days_in_month
+simple ; OP_SEMICOLON
+identifier day
+simple ++ OP_INC
+simple ) OP_RPAREN
+simple { OP_LBRACE
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "%2d" array of 4 char 25326400
+simple , OP_COMMA
+identifier day
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple if KW_IF
+simple ( OP_LPAREN
+simple ( OP_LPAREN
+identifier day
+simple + OP_PLUS
+identifier day_code
+simple ) OP_RPAREN
+simple % OP_MOD
+literal 7 int 07000000
+simple > OP_GT
+literal 0 int 00000000
+simple ) OP_RPAREN
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "   " array of 4 char 20202000
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple else KW_ELSE
+identifier fprintf
+simple ( OP_LPAREN
+identifier fout
+simple , OP_COMMA
+literal "\n " array of 3 char 0A2000
+simple ) OP_RPAREN
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+identifier day_code
+simple = OP_ASS
+simple ( OP_LPAREN
+identifier day_code
+simple + OP_PLUS
+identifier days_in_month
+simple ) OP_RPAREN
+simple % OP_MOD
+literal 7 int 07000000
+simple ; OP_SEMICOLON
+simple } OP_RBRACE
+simple } OP_RBRACE
+eof

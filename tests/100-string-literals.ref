@@ -1,0 +1,16 @@
+literal "" "foo" "bar" "baz" array of 10 char 666F6F62617262617A00
+identifier u7
+literal "foo" u8"bar" array of 7 char 666F6F62617200
+identifier u9
+literal "baz" array of 4 char 62617A00
+identifier r
+literal "abc" u"abc" array of 7 char16_t 6100620063006100620063000000
+identifier t
+literal "abc" array of 4 char 61626300
+identifier r
+invalid "abc"u "abc"t "abc"
+identifier Q
+literal "(abc)" R"(abc)" array of 9 char 286162632961626300
+identifier T
+invalid "(abc)" U"ewe" L"moo"
+eof

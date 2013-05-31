@@ -1,0 +1,8 @@
+literal 'f' char 66
+invalid 'foo'
+identifier r
+invalid 'bar'
+invalid u'bar'
+invalid U'bar'
+invalid L'baz'
+eof

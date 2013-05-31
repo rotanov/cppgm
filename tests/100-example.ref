@@ -1,0 +1,6 @@
+identifier foo
+literal 1.0e2 double 0000000000005940
+simple *= OP_STARASS
+invalid @
+literal "bar" array of 4 char 62617200
+eof
