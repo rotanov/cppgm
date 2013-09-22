@@ -8,8 +8,8 @@
 
 using namespace std;
 
-#include "IPPTokenStream.h"
-#include "DebugPPTokenStream.h"
+#include "IPPTokenStream.hpp"
+#include "DebugPPTokenStream.hpp"
 
 #include "Tokenizer.hpp"
 

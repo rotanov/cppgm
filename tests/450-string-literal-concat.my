@@ -1,33 +1,7 @@
-string-literal 5 "abc"
-whitespace-sequence 0 
-string-literal 5 "def"
-preprocessing-op-or-punc 1 ;
-new-line 0 
-new-line 0 
-string-literal 5 "abc"
-whitespace-sequence 0 
-identifier 2 no
-whitespace-sequence 0 
-string-literal 5 "def"
-preprocessing-op-or-punc 1 ;
-new-line 0 
-new-line 0 
-string-literal 7 u8"abc"
-whitespace-sequence 0 
-string-literal 5 "def"
-preprocessing-op-or-punc 1 ;
-new-line 0 
-new-line 0 
-string-literal 5 "abc"
-whitespace-sequence 0 
-string-literal 7 u8"def"
-preprocessing-op-or-punc 1 ;
-new-line 0 
-new-line 0 
-string-literal 7 u8"abc"
-whitespace-sequence 0 
-string-literal 7 u8"def"
-preprocessing-op-or-punc 1 ;
-new-line 0 
-new-line 0 
+simple ; OP_SEMICOLON
+identifier no
+simple ; OP_SEMICOLON
+simple ; OP_SEMICOLON
+simple ; OP_SEMICOLON
+simple ; OP_SEMICOLON
 eof

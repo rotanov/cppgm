@@ -1,13 +1,15 @@
 #pragma once
 
+#include "Utils.hpp"
+
 // Tokenizer
 class PPTokenizer
 {
 public:
-	IPPTokenStream& output;
+    IPPTokenStream& output_;
 
     PPTokenizer(int* source, IPPTokenStream& output)
-		: output(output)
+        : output_(output)
         , source_(source)
         , pos(0)
         , state(NORMAL)
@@ -218,7 +220,7 @@ public:
 //------------------------------------------------------------------------------
                 else if (c == '\n')
                 {
-                    output.emit_new_line();
+                    output_.emit_new_line();
                     headerNameState = 0;
                     pos++;
                 }
@@ -260,7 +262,7 @@ public:
                             {
                                 if (transformed_[j] == '"')
                                 {
-                                    output.emit_header_name(UTF8CodePointToString(transformed_, pos, j));
+                                    output_.emit_header_name(UTF8CodePointToString(transformed_, pos, j));
                                     pos = j + 1;
                                     state = NORMAL;
                                     break;
@@ -347,7 +349,7 @@ public:
                                         {
                                             if (s == "<" && transformed_[j] == '>')
                                             {
-                                                output.emit_header_name(UTF8CodePointToString(transformed_, pos, j));
+                                                output_.emit_header_name(UTF8CodePointToString(transformed_, pos, j));
                                                 pos = j + 1;
                                                 opOrPuncFound = true;
                                                 state = NORMAL;
@@ -366,18 +368,18 @@ public:
                             {
                                 if (spaceTillNotEof == 3 || (spaceTillNotEof > 3 && where[3] != ':' && where[3] != '>'))
                                 {
-                                    output.emit_preprocessing_op_or_punc("<");
+                                    output_.emit_preprocessing_op_or_punc("<");
                                     pos += 1;
                                 }
                                 else
                                 {
-                                    output.emit_preprocessing_op_or_punc("<:");
+                                    output_.emit_preprocessing_op_or_punc("<:");
                                     pos += 2;
                                 }
                             }
                             else
                             {
-                                output.emit_preprocessing_op_or_punc(s);
+                                output_.emit_preprocessing_op_or_punc(s);
                                 pos += i;
                             }
                             opOrPuncFound = true;
@@ -390,7 +392,7 @@ public:
                         break;
                     }
 
-                    output.emit_non_whitespace_char(UTF8CodePointToString(c));
+                    output_.emit_non_whitespace_char(UTF8CodePointToString(c));
                     pos++;
                 }
                 break;
@@ -399,8 +401,8 @@ public:
 //------------------------------------------------------------------------------
                 if (c == '\n')
                 {
-                    output.emit_whitespace_sequence();
-                    output.emit_new_line();
+                    output_.emit_whitespace_sequence();
+                    output_.emit_new_line();
                     headerNameState = 0;
                     pos++;
                     state = NORMAL;
@@ -408,7 +410,7 @@ public:
 //------------------------------------------------------------------------------
                 else if (c == EndOfFile)
                 {
-                    output.emit_whitespace_sequence();
+                    output_.emit_whitespace_sequence();
                     state = FINISHED;
                 }
 //------------------------------------------------------------------------------
@@ -422,7 +424,7 @@ public:
 //------------------------------------------------------------------------------
                 if (MatchPrefix("*/", where) == 2)
                 {
-                    output.emit_whitespace_sequence();
+                    output_.emit_whitespace_sequence();
                     pos += 2;
                     state = NORMAL;
                 }
@@ -452,8 +454,8 @@ public:
 //------------------------------------------------------------------------------
                 else if (c == '\n')
                 {
-                    output.emit_whitespace_sequence();
-                    output.emit_new_line();
+                    output_.emit_whitespace_sequence();
+                    output_.emit_new_line();
                     headerNameState = 0;
                     pos++;
                     state = NORMAL;
@@ -461,7 +463,7 @@ public:
 //------------------------------------------------------------------------------
                 else
                 {
-                    output.emit_whitespace_sequence();
+                    output_.emit_whitespace_sequence();
                     state = NORMAL;
                     if (c == EndOfFile)
                     {
@@ -483,21 +485,21 @@ public:
 
                     if (state == MATCHING_UD_STRING_LITERAL)
                     {
-                        output.emit_user_defined_string_literal(identifier);
+                        output_.emit_user_defined_string_literal(identifier);
                     }
                     else if (state == MATCHING_UD_CHARACTER_LITERAL)
                     {
-                        output.emit_user_defined_character_literal(identifier);
+                        output_.emit_user_defined_character_literal(identifier);
                     }
                     else
                     {
                         if (Digraph_IdentifierLike_Operators.count(identifier) != 0)
                         {
-                            output.emit_preprocessing_op_or_punc(identifier);
+                            output_.emit_preprocessing_op_or_punc(identifier);
                         }
                         else
                         {
-                            output.emit_identifier(identifier);
+                            output_.emit_identifier(identifier);
                             if (headerNameState == 1 && identifier == "include")
                             {
                                 headerNameState = 2;
@@ -528,7 +530,7 @@ public:
                     }
                     else
                     {
-                        output.emit_character_literal(UTF8CodePointToString(transformed_, outStart, pos));
+                        output_.emit_character_literal(UTF8CodePointToString(transformed_, outStart, pos));
                         state = NORMAL;
                         pos++;
                     }
@@ -536,7 +538,7 @@ public:
 //------------------------------------------------------------------------------
                 else if (c == '\n')
                 {
-                    throw logic_error("Newling in character literal");
+                    throw logic_error("Newline in character literal");
                 }
 //------------------------------------------------------------------------------
                 else if (c == '\\')
@@ -577,7 +579,7 @@ public:
 //------------------------------------------------------------------------------
                 else
                 {
-                    output.emit_pp_number(UTF8CodePointToString(transformed_, outStart, pos - 1));
+                    output_.emit_pp_number(UTF8CodePointToString(transformed_, outStart, pos - 1));
                     if (c == EndOfFile)
                     {
                         state = FINISHED;
@@ -601,7 +603,7 @@ public:
                     }
                     else
                     {
-                        output.emit_string_literal(UTF8CodePointToString(transformed_, outStart, pos));
+                        output_.emit_string_literal(UTF8CodePointToString(transformed_, outStart, pos));
                         state = NORMAL;
                         pos++;
                     }
@@ -663,7 +665,7 @@ public:
                             // enconding prefix + R"
                             string str0 = UTF8CodePointToString(transformed_, outStart, outEnd);
                             string str1 = UTF8CodePointToString(source_, dPrefixBegin, sourcePos + dPrefixEnd - dPrefixBegin + 2);
-                            output.emit_string_literal(str0 + str1);
+                            output_.emit_string_literal(str0 + str1);
                             while (translations_[pos] < sourcePos + dPrefixEnd - dPrefixBegin + 2)
                             {
                                 pos++;
@@ -707,131 +709,25 @@ public:
                 {
                     if (*(transformed_ + pos - 1) == '\n')
                     {
-                        output.emit_new_line();
+                        output_.emit_new_line();
                     }
                 }
                 if (*(transformed_ + pos - 1) != '\n')
                 {
-                    output.emit_new_line();
+                    output_.emit_new_line();
                 }
             }
             else
             {
                 if (*(transformed_ + pos - 1) != '\n')
                 {
-                    output.emit_new_line();
+                    output_.emit_new_line();
                 }
             }
         }
 
-        output.emit_eof();
+        output_.emit_eof();
 	}
-
-    int MatchHexQuad(int* where, int& out)
-    {
-        out = 0;
-        for (int i = 0; i < 4; i++)
-        {
-            int c = *(where + i);
-            if (HexadecimalCharachters.count(c) == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                out |= HexCharToValue(c) << ((3 - i) * 4);
-            }
-        }
-        return 4;
-    }
-
-    int MatchPrefix(const string& prefix, int* where)
-    {
-        int* i = where;
-        for (auto c : prefix)
-        {
-            if (i[0] != c || i[0] == EndOfFile)
-            {
-                return 0;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        return i - where;
-    }
-
-    bool MatchSubsequence(int* source, int from, int begin, int end)
-    {
-        int i = 0;
-        while (source[i] != EndOfFile
-            && source[from + i] == source[begin + i]
-            && i <= end - begin)
-        {
-            i++;
-        }
-        return i - 1 == end - begin;
-    }
-
-    // splits string by |, if we want to match | then we're at fail
-    // returns true if at least one prefix matched
-    int MatchPrefixes(const string& s, int* where)
-    {
-        vector<string> prefixes;
-        Split(s, '|', prefixes);
-        for (auto prefix : prefixes)
-        {
-            int matched = MatchPrefix(prefix, where);
-            if (matched == prefix.size())
-            {
-                return matched;
-            }
-        }
-        return 0;
-    }
-
-    int MatchEscapeSequence(int* where)
-    {
-        int c = where[0];
-        if (SimpleEscapeSequence_CodePoints.count(c) > 0)
-        {
-            return 1;
-        }
-        else if ('0' <= c && c <= '7')
-        {
-            int i = 0;
-            while (i < 3 && '0' <= where[i] && where[i] <= '7')
-            {
-                i++;
-            }
-            return i;
-        }
-        else if (c == 'x')
-        {
-            int i = 0;
-            while (HexadecimalCharachters.count(where[i + 1]) != 0)
-            {
-                i++;
-            }
-            if (i == 0)
-            {
-                return 0;
-            }
-            else
-            {
-                return i + 1;
-            }
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    // syntax:
-    // [ \t].*(#|%:)[ \t].*include[ \t].*
-    // int MatchRegex
 
 private:
     int pos;    

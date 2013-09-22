@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "IPPTokenStream.h"
+#include "IPPTokenStream.hpp"
 
 #include <string>
 using std::string;

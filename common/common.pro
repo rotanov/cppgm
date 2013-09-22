@@ -1,11 +1,20 @@
 TEMPLATE = lib
 TARGET = common
-CONFIG = staticlib
+CONFIG += staticlib
 
 QMAKE_CXXFLAGS += -std=c++11
 
 HEADERS += \
-	Unicode.hpp
+	Unicode.hpp \
+    Tokenizer.hpp \
+    Utils.hpp \
+    Constants.hpp \
+    DebugPPTokenStream.hpp \
+    IPPTokenStream.hpp \
+    PostTokenStream.hpp \
+    DebugPostTokenOutputStream.hpp
 
 SOURCES += \
-    pptoken.cpp
+    Utils.cpp \
+    PostTokenStream.cpp \
+    Unicode.cpp
